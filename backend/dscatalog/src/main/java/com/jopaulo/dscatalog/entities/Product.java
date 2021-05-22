@@ -44,8 +44,8 @@ public class Product implements Serializable {
 	public Product() {
 	}
 
-	public Product(Long id, String nome, String description, Double price, String imgUrl, Instant date) {
-		this.name = nome;
+	public Product(Long id, String name, String description, Double price, String imgUrl, Instant date) {
+		this.name = name;
 		this.description = description;
 		this.price = price;
 		this.imgUrl = imgUrl;
@@ -60,12 +60,12 @@ public class Product implements Serializable {
 		this.id = id;
 	}
 
-	public String getNome() {
+	public String getName() {
 		return name;
 	}
 
-	public void setNome(String nome) {
-		this.name = nome;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getDescription() {
