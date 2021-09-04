@@ -1291,3 +1291,75 @@ Binding(CTRL+SHIFT+T,
 
 !ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-09-04 16:02:53.989
 !MESSAGE executing callback sts4.classpath.owjoNNoS SUCCESS [done]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-09-04 17:14:13.490
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.owjoNNoS
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-09-04 17:14:13.490
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.owjoNNoS
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-09-04 17:14:13.491
+!MESSAGE subsribers = {}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-09-04 17:14:13.491
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.owjoNNoS => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-09-04 17:14:36.578
+!MESSAGE Entering DelegatingStreamConnectionProvider()
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-09-04 17:14:36.579
+!MESSAGE DelegatingStreamConnectionProvider classloader = org.eclipse.osgi.internal.loader.EquinoxClassLoader@7dd0095c[org.springframework.tooling.boot.ls:1.27.0.202108151936(id=644)]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-09-04 17:14:36.579
+!MESSAGE SpringBootLanguageServer exists!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-09-04 17:14:37.615
+!MESSAGE Boot LS startup time from start to initialized: 1035ms
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-09-04 17:14:37.657
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.gNfsFdXpisBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-09-04 17:14:37.658
+!MESSAGE Setting up ClasspathListenerManager
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-09-04 17:14:37.658
+!MESSAGE Scheduling initial event for all projects ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-09-04 17:14:37.658
+!MESSAGE Scheduling initial event for all projects DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-09-04 17:14:37.658
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.gNfsFdXp => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-09-04 17:14:37.658
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-09-04 17:14:37.660
+!MESSAGE classpath=103 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-09-04 17:14:37.660
+!MESSAGE buffering callback sts4.classpath.gNfsFdXp dscatalog false 103
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-09-04 17:14:37.660
+!MESSAGE executing callback sts4.classpath.gNfsFdXp 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-09-04 17:14:37.858
+!MESSAGE executing callback sts4.classpath.gNfsFdXp SUCCESS [done]
+
+!ENTRY org.eclipse.ui 2 2 2021-09-04 17:44:18.653
+!MESSAGE Invalid property category path: org.springframework.ide.eclipse.beans.ui.properties.ProjectPropertyPage (bundle: org.springframework.ide.eclipse.xml.namespaces, propertyPage: org.springframework.ide.eclipse.beans.ui.namespaces.projectPropertyPage)
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-09-04 18:00:45.531
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-09-04 18:00:45.533
+!MESSAGE classpath=103 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-09-04 18:00:45.533
+!MESSAGE buffering callback sts4.classpath.gNfsFdXp dscatalog false 103
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-09-04 18:00:45.534
+!MESSAGE executing callback sts4.classpath.gNfsFdXp 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-09-04 18:00:45.548
+!MESSAGE executing callback sts4.classpath.gNfsFdXp SUCCESS [done]
