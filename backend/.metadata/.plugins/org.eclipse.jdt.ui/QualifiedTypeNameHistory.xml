@@ -3,7 +3,10 @@
     <fullyQualifiedTypeName name="com.jopaulo.dscatalog.entities.Product"/>
     <fullyQualifiedTypeName name="javax.persistence.ManyToMany"/>
     <fullyQualifiedTypeName name="java.io.Serializable"/>
+    <fullyQualifiedTypeName name="com.jopaulo.dscatalog.entities.User"/>
     <fullyQualifiedTypeName name="java.util.Set"/>
-    <fullyQualifiedTypeName name="com.jopaulo.dscatalog.entities.Role"/>
     <fullyQualifiedTypeName name="java.util.HashSet"/>
+    <fullyQualifiedTypeName name="com.jopaulo.dscatalog.dto.RoleDTO"/>
+    <fullyQualifiedTypeName name="com.jopaulo.dscatalog.entities.Role"/>
+    <fullyQualifiedTypeName name="com.jopaulo.dscatalog.repositories.RoleRepository"/>
 </qualifiedTypeNameHistroy>
