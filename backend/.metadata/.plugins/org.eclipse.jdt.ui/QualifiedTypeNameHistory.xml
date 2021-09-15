@@ -9,4 +9,18 @@
     <fullyQualifiedTypeName name="com.jopaulo.dscatalog.dto.RoleDTO"/>
     <fullyQualifiedTypeName name="com.jopaulo.dscatalog.entities.Role"/>
     <fullyQualifiedTypeName name="com.jopaulo.dscatalog.repositories.RoleRepository"/>
+    <fullyQualifiedTypeName name="javax.persistence.Column"/>
+    <fullyQualifiedTypeName name="javax.validation.constraints.NotEmpty"/>
+    <fullyQualifiedTypeName name="javax.validation.constraints.Email"/>
+    <fullyQualifiedTypeName name="javax.validation.constraints.Positive"/>
+    <fullyQualifiedTypeName name="javax.validation.constraints.NotBlank"/>
+    <fullyQualifiedTypeName name="javax.validation.constraints.PastOrPresent"/>
+    <fullyQualifiedTypeName name="javax.validation.constraints.Size"/>
+    <fullyQualifiedTypeName name="javax.validation.Valid"/>
+    <fullyQualifiedTypeName name="org.springframework.validation.FieldError"/>
+    <fullyQualifiedTypeName name="com.jopaulo.dscatalog.resources.exceptions.StanderError"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="com.jopaulo.dscatalog.resources.exceptions.FieldMessage"/>
+    <fullyQualifiedTypeName name="com.jopaulo.dscatalog.resources.exceptions.ValidationError"/>
 </qualifiedTypeNameHistroy>

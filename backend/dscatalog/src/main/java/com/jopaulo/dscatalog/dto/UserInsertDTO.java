@@ -1,5 +1,8 @@
 package com.jopaulo.dscatalog.dto;
 
+import com.jopaulo.dscatalog.services.validation.UserInsertValid;
+
+@UserInsertValid
 public class UserInsertDTO extends UserDTO{
 	private static final long serialVersionUID = 1L;
 	
