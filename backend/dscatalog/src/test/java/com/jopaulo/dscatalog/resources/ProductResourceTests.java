@@ -1,5 +1,6 @@
 package com.jopaulo.dscatalog.resources;
 
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -9,9 +10,9 @@ import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.ArgumentMatchers;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.http.MediaType;
@@ -23,12 +24,13 @@ import com.jopaulo.dscatalog.services.ProductService;
 import com.jopaulo.dscatalog.services.exceptions.ResourceNotFoundException;
 import com.jopaulo.dscatalog.tests.Factory;
 
-@WebMvcTest(ProductResource.class)
+@SpringBootTest
+@AutoConfigureMockMvc
 public class ProductResourceTests {
 
 	@Autowired
 	private MockMvc mockMvc;
-
+	
 	@MockBean
 	private ProductService service;
 
@@ -39,14 +41,13 @@ public class ProductResourceTests {
 
 	@BeforeEach
 	void setUp() throws Exception {
-
 		existingId = 1L;
 		nonExistingId = 2L;
-
+		
 		productDTO = Factory.createProductDTO();
 		page = new PageImpl<>(List.of(productDTO));
 
-//		when(service.findAllPaged(ArgumentMatchers.any())).thenReturn(page);
+		when(service.findAllPaged(any(), any(), any())).thenReturn(page);
 
 		when(service.findById(existingId)).thenReturn(productDTO);
 		when(service.findById(nonExistingId)).thenThrow(ResourceNotFoundException.class);
@@ -54,7 +55,6 @@ public class ProductResourceTests {
 
 	@Test
 	public void findAllShouldReturnPage() throws Exception {
-
 		ResultActions results = mockMvc.perform(get("/products").accept(MediaType.APPLICATION_JSON));
 
 		results.andExpect(status().isOk());
@@ -62,7 +62,6 @@ public class ProductResourceTests {
 
 	@Test
 	public void findByIdShouldReturnProductWhenIdExists() throws Exception {
-
 		ResultActions results = mockMvc.perform(get("/products/{id}", existingId).accept(MediaType.APPLICATION_JSON));
 
 		results.andExpect(status().isOk());
@@ -73,7 +72,6 @@ public class ProductResourceTests {
 
 	@Test
 	public void findByIdShouldReturnNotFoundIdDoesNotExists() throws Exception {
-
 		ResultActions results = mockMvc.perform(get("/products/{id}", nonExistingId).accept(MediaType.APPLICATION_JSON));
 
 		results.andExpect(status().isNotFound());

@@ -1,5 +1,7 @@
 package com.jopaulo.dscatalog.services;
 
+import static org.mockito.ArgumentMatchers.any;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -69,6 +71,8 @@ public class ProductServiceTests {
 		
 		Mockito.when(repository.getOne(existingId)).thenReturn(product);
 		Mockito.when(repository.getOne(nonExistingId)).thenThrow(EntityNotFoundException.class);
+
+		Mockito.when(repository.find(any(), any(), any())).thenReturn(page);
 		
 		Mockito.when(categoryRepository.getOne(existingId)).thenReturn(category);
 		Mockito.when(categoryRepository.getOne(nonExistingId)).thenThrow(EntityNotFoundException.class);
@@ -106,15 +110,14 @@ public class ProductServiceTests {
 		Assertions.assertNotNull(result);
 	}
 	
-//	@Test
-//	public void findAllPagedShouldReturnPage() {
-//		Pageable pageable = PageRequest.of(0, 10);
-//		
-//		Page<ProductDTO> result = service.findAllPaged(pageable);
-//		
-//		Assertions.assertNotNull(result);
-//		Mockito.verify(repository).findAll(pageable);
-//	}
+	@Test
+	public void findAllPagedShouldReturnPage() {
+		Pageable pageable = PageRequest.of(0, 10);
+		
+		Page<ProductDTO> result = service.findAllPaged(0L, "", pageable);
+		
+		Assertions.assertNotNull(result);
+	}
 	
 	@Test
 	public void deleteShouldThrowDataBaseExceptionWhenIdDoesNotExisting() {
