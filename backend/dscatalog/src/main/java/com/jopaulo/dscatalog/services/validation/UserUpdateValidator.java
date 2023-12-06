@@ -11,7 +11,6 @@ import javax.validation.ConstraintValidatorContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerMapping;
 
-import com.jopaulo.dscatalog.dto.UserInsertDTO;
 import com.jopaulo.dscatalog.dto.UserUpdateDTO;
 import com.jopaulo.dscatalog.entities.User;
 import com.jopaulo.dscatalog.repositories.UserRepository;
