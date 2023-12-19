@@ -1,10 +1,14 @@
-import Hello from 'components/Hello';
+import Navbar from 'components/Navbar';
+import './assets/styles/custom.scss';
 import './App.css';
 
-function App() {
+const App = () => {
 
   return (
-    <Hello />
+    <>
+      <Navbar />
+      <h1>Aló mundo cruel</h1>
+    </>
   );
 }
 
