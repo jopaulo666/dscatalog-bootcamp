@@ -1,3 +1,4 @@
+import ProductPrice from 'components/ProductPrice';
 import './styles.css'
 import ProductImg from 'assets/images/product.png';
 
@@ -9,7 +10,7 @@ const ProductCard = () => {
             </div>
             <div className='card-botton-container'>
                 <h6>Nome do produto</h6>
-                <p>121212,12</p>
+                <ProductPrice/>
             </div>
         </div>
     );
