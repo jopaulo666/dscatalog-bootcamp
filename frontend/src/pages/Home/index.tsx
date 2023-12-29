@@ -14,7 +14,7 @@ const Home = () => {
                     </div>
                     <div>
                         <Link to="/products">
-                            <ButonIcon />
+                            <ButonIcon text='Inicia agora sua busca'/>
                         </Link>
                     </div>
                 </div>
