@@ -1,12 +1,14 @@
 import { ReactComponent as ArrowIcon } from 'assets/images/arrow.svg';
 import ProductPrice from 'components/ProductPrice';
 
+import './styles.css';
+
 const ProductDetails = () => {
     return (
-       <div className="product-details-content">
-            <div className="product-details-card">
+        <div className="product-details-content">
+            <div className="base-card product-details-card">
                 <div className="goback-container">
-                    <ArrowIcon/>
+                    <ArrowIcon />
                     <h2>VOLTAR</h2>
                 </div>
                 <div className="row">
@@ -16,7 +18,7 @@ const ProductDetails = () => {
                         </div>
                         <div className="name-price-container">
                             <h1>Nome do produto</h1>
-                            <ProductPrice price={222.22}/>
+                            <ProductPrice price={222.22} />
                         </div>
                     </div>
                     <div className="col-xl-6">
@@ -27,7 +29,7 @@ const ProductDetails = () => {
                     </div>
                 </div>
             </div>
-       </div>
+        </div>
     );
 }
 
