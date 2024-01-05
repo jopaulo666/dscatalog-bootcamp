@@ -28,8 +28,47 @@
 }
 
 @media (min-width: 1200px) {
+    .auth-container {
+        padding: 40px;
+    }
+
     .auth-banner-container {
         display: flex;
         flex-direction: column;
+        margin-top: 40px;
+        width: 500px;
+    }
+
+    .auth-banner-container h1 {
+        color: #263238;
+        font-size: 40px;
+        letter-spacing: -0.015em;
+        margin-bottom: 15px;
+    }
+
+    .auth-banner-container p {
+        color: #9E9E9E;
+        font-size: 18px;
+        letter-spacing: -0.36px;
+    }
+
+    .auth-banner-container svg {
+        width: 100%;
+        border: 1px solid rgb(0, 0, 0);
+    }
+}
+
+@media (min-width: 1400px) {
+    .auth-banner-container {
+        width: 650px;
+    }
+
+    .auth-banner-container h1 {
+        font-size: 55px;
+        margin-bottom: 25px;
+    }
+
+    .auth-banner-container p {
+        font-size: 24px;
     }
 }
