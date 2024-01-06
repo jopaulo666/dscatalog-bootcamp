@@ -39,7 +39,13 @@ const Login = () => {
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="mb-4">
                     <input
-                        {...register("username", {required: "E-mail obrigatório"})}
+                        {...register("username", {
+                            required: "E-mail obrigatório",
+                            pattern: {
+                                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                                message: "E-mail inválido"
+                            }
+                        })}
                         type="text"
                         className="form-control base-input"
                         placeholder="Email"
