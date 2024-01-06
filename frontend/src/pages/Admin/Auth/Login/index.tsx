@@ -3,7 +3,7 @@ import './styles.css';
 import { Link } from 'react-router-dom';
 import ButtonIcon from 'components/ButonIcon';
 import { useForm } from "react-hook-form"
-import { requestBackendLogin } from 'util/requests';
+import { getAuthData, requestBackendLogin, saveAuthData } from 'util/requests';
 import { useState } from 'react';
 
 type FormData = {
@@ -14,11 +14,14 @@ type FormData = {
 const Login = () => {
     const [hasError, setHasError] = useState(false);
 
-    const { register, handleSubmit, formState: {errors} } = useForm<FormData>();
+    const { register, handleSubmit, formState: { errors } } = useForm<FormData>();
 
     const onSubmit = (formData: FormData) => {
         requestBackendLogin(formData)
             .then(response => {
+                saveAuthData(response.data);
+                const token = getAuthData().access_token;
+                console.log("Token gerado: " + token);
                 setHasError(false);
                 console.log("Sucesso: ", response);
             })
@@ -55,7 +58,7 @@ const Login = () => {
                 </div>
                 <div className="mb-2">
                     <input
-                        {...register("password", {required: "Senha obrigatória"})}
+                        {...register("password", { required: "Senha obrigatória" })}
                         type="password"
                         className={`form-control base-input ${errors.password ? 'is-invalid' : ''}`}
                         placeholder="Senha"
