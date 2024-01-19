@@ -1,16 +1,47 @@
 import './styles.css'
 import '@popperjs/core';
 import 'bootstrap/js/src/collapse';
+import { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import history from 'util/history';
+import { TokenData, getTokenData, isAuthenticated, removeAuthData } from 'util/requests';
+
+type AuthData = {
+    authenticate: boolean,
+    tokenData?: TokenData
+}
 
 const Navbar = () => {
+    const [authData, setAuthData] = useState<AuthData>({ authenticate: false });
+
+    useEffect(() => {
+        if (isAuthenticated()) {
+            setAuthData({
+                authenticate: true,
+                tokenData: getTokenData()
+            });
+        } else {
+            setAuthData({
+                authenticate: false
+            });
+        }
+    }, []);
+
+    const handleLogoutClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+        event.preventDefault();
+        removeAuthData();
+        setAuthData({
+            authenticate: false
+        });
+        history.replace('/');
+    }
+
     return (
         <nav className="navbar navbar-expand-md navbar-dark bg-primary main-nav">
             <div className="container-fluid">
                 <Link to="/" className="nav-logo-text">
                     <h4>DS Catalog</h4>
                 </Link>
-
                 <button
                     className="navbar-toggler"
                     type="button"
@@ -36,6 +67,18 @@ const Navbar = () => {
                         </li>
                     </ul>
                 </div>
+
+                <div>
+                    {authData.authenticate ? (
+                        <>
+                            <span>{authData.tokenData?.user_name}</span>
+                            <a href="#logout" onClick={handleLogoutClick}>Logout</a>
+                        </>
+                    ) : (
+                        <Link to="/admin/auth">Login</Link>
+                    )}
+                </div>
+
             </div>
         </nav>
 
