@@ -15,6 +15,9 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+//import org.hibernate.envers.Audited;
+
+//@Audited
 @Entity
 @Table(name = "tb_product")
 public class Product implements Serializable {

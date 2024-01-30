@@ -1,36 +1,33 @@
 import './styles.css'
 import '@popperjs/core';
+import { AuthContext } from 'AuthContext';
 import 'bootstrap/js/src/collapse';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import history from 'util/history';
-import { TokenData, getTokenData, isAuthenticated, removeAuthData } from 'util/requests';
-
-type AuthData = {
-    authenticate: boolean,
-    tokenData?: TokenData
-}
+import { getTokenData, isAuthenticated, removeAuthData } from 'util/requests';
 
 const Navbar = () => {
-    const [authData, setAuthData] = useState<AuthData>({ authenticate: false });
+
+    const { authContextData, setAuthContextData } = useContext(AuthContext);
 
     useEffect(() => {
         if (isAuthenticated()) {
-            setAuthData({
+            setAuthContextData({
                 authenticate: true,
                 tokenData: getTokenData()
             });
         } else {
-            setAuthData({
+            setAuthContextData({
                 authenticate: false
             });
         }
-    }, []);
+    }, [setAuthContextData]);
 
     const handleLogoutClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
         event.preventDefault();
         removeAuthData();
-        setAuthData({
+        setAuthContextData({
             authenticate: false
         });
         history.replace('/');
@@ -69,9 +66,9 @@ const Navbar = () => {
                 </div>
 
                 <div className='nav-login-logout'>
-                    {authData.authenticate ? (
+                    {authContextData.authenticate ? (
                         <>
-                            <span className='nav-username'>{authData.tokenData?.user_name}</span>
+                            <span className='nav-username'>{authContextData.tokenData?.user_name}</span>
                             <a href="#logout" onClick={handleLogoutClick}>Logout</a>
                         </>
                     ) : (
