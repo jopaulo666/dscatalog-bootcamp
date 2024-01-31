@@ -1,4 +1,4 @@
-import { hasAnyRole } from 'util/requests';
+import { hasAnyRole } from 'util/auth';
 import './styles.css'
 import { NavLink } from 'react-router-dom';
 
