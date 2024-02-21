@@ -14,7 +14,7 @@ const ProductCrudCard = ({ product }: Props) => {
                 <img src={product.imgUrl} alt={product.name} />
             </div>
             <div>
-                <div className='product-crud-card-botton-container'>
+                <div className='product-crud-card-bottom-container'>
                     <h6>{product.name}</h6>
                     <ProductPrice price={product.price} />
                 </div>
@@ -27,7 +27,14 @@ const ProductCrudCard = ({ product }: Props) => {
                     ))}
                 </div>
             </div>
-
+            <div className='product-crud-card-buttons-container'>
+                <button className='btn btn-outline-danger product-crud-card-button product-crud-card-button-first'>
+                    excluir
+                </button>
+                <button className='btn btn-outline-secondary product-crud-card-button'>
+                    editar
+                </button>
+            </div>                
         </div>
     );
 }

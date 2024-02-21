@@ -20,6 +20,10 @@ const List = () => {
             {
                 "id": 2,
                 "name": "Computadores"
+            },
+            {
+                "id": 3,
+                "name": "Celulares"
             }
         ]
     }
