@@ -24,7 +24,13 @@ export const requestBackendLogin = (loginData: LoginData) => {
         grant_type: 'password'
     });
 
-    return axios({ method: 'POST', baseURL: BASE_URL, url: '/oauth/token', data, headers });
+    return axios({ 
+        method: 'POST', 
+        baseURL: BASE_URL, 
+        url: '/oauth/token', 
+        data, 
+        headers 
+    });
 }
 
 export const requestBackend = (config: AxiosRequestConfig) => {
