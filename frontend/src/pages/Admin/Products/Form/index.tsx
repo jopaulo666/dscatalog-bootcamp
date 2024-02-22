@@ -18,13 +18,11 @@ const Form = () => {
                                     
                                 </div>
                             </div>
-
                             <div className="margin-bottom-30 ">
                                 
                             </div>
 
                             <div className="margin-bottom-30">
-                                
                                 <div className="invalid-feedback d-block">
                                     
                                 </div>
@@ -53,9 +51,7 @@ const Form = () => {
                         </div>
                     </div>
                     <div className="product-crud-buttons-container">
-                        <button
-                            className="btn btn-outline-danger product-crud-button"
-                        >
+                        <button className="btn btn-outline-danger product-crud-button">
                             CANCELAR
                         </button>
                         <button className="btn btn-primary product-crud-button text-white">
