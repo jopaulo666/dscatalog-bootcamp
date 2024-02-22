@@ -3,19 +3,26 @@ import './styles.css'
 import { Product } from 'types/product';
 import { requestBackend } from 'util/requests';
 import { AxiosRequestConfig } from 'axios';
+import { useHistory } from 'react-router-dom';
 
 const Form = () => {
 
-
+    const history = useHistory();
 
     const { register, handleSubmit, formState: { errors } } = useForm<Product>();
 
     const onSubmit = (formData: Product) => {
 
+        const data = {
+            ...formData,
+            imgUrl: "https://www.thewall360.com/uploadImages/ExtImages/images1/def-638240706028967470.jpg",
+            categories: [{ id: 1, name: "Eletrônicos" }]
+        }
+
         const config: AxiosRequestConfig = {
             method: 'POST',
             url: "/products",
-            data: formData,
+            data,
             withCredentials: true
         };
 
@@ -23,6 +30,10 @@ const Form = () => {
             .then(response => {
                 console.log(response.data)
             });
+    };
+
+    const handleCancel = () => {
+        history.push('/admin/products');
     };
 
     return (
@@ -39,45 +50,44 @@ const Form = () => {
                                     })}
                                     type="text"
                                     className={`form-control base-input ${errors.name ? 'is-invalid' : ''}`}
-                                    placeholder="Nome do produto"
+                                    placeholder="Nome"
                                     name="name"
                                 />
                                 <div className="invalid-feedback d-block">{errors.name?.message}</div>
                             </div>
-                            <div className="margin-bottom-30 ">
-
-                            </div>
-
-                            <div className="margin-bottom-30">
-                                <div className="invalid-feedback d-block">
-
-                                </div>
-                            </div>
-
                             <div className="margin-bottom-30">
                                 <input
+                                    {...register("price", {
+                                        required: "Preço obrigatório",
+                                    })}
                                     type="text"
+                                    className={`form-control base-input ${errors.name ? 'is-invalid' : ''}`}
+                                    placeholder="Preço"
+                                    name="price"
                                 />
-                                <div className="invalid-feedback d-block">
-
-                                </div>
+                                <div className="invalid-feedback d-block">{errors.price?.message}</div>
                             </div>
                         </div>
                         <div className="col-lg-6">
                             <div>
                                 <textarea
                                     rows={10}
+                                    {...register("description", {
+                                        required: "Descrição obrigatório",
+                                    })}
+                                    className={`form-control base-input h-auto ${errors.description ? 'is-invalid' : ''}`}
                                     placeholder="Descrição"
                                     name="description"
                                 />
-                                <div className="invalid-feedback d-block">
-
-                                </div>
+                                <div className="invalid-feedback d-block">{errors.description?.message}</div>
                             </div>
                         </div>
                     </div>
                     <div className="product-crud-buttons-container">
-                        <button className="btn btn-outline-danger product-crud-button">
+                        <button
+                            className="btn btn-outline-danger product-crud-button"
+                            onClick={handleCancel}
+                        >
                             CANCELAR
                         </button>
                         <button className="btn btn-primary product-crud-button text-white">
