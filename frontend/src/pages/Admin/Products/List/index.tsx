@@ -31,7 +31,7 @@ const List = () => {
                 <Link to="/admin/products/create">
                     <button className="btn btn-primary text-white btn-crud-add">Adicionar</button>
                 </Link>
-                <div className='base-card product-filter-container'>searc bar</div>
+                <div className='base-card product-filter-container'>Pesquisar</div>
             </div>
             <div className='row'>
                 {page?.content.map(product => (

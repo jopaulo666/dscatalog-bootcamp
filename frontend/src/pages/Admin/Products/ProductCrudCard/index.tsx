@@ -30,11 +30,11 @@ const ProductCrudCard = ({ product }: Props) => {
             </div>
             <div className='product-crud-card-buttons-container'>
                 <button className='btn btn-outline-danger product-crud-card-button product-crud-card-button-first'>
-                    excluir
+                    Excluir
                 </button>
-                <Link to={`/admin/product/${product.id}`}>
+                <Link to={`/admin/products/${product.id}`}>
                     <button className='btn btn-outline-secondary product-crud-card-button'>
-                        editar
+                        Editar
                     </button>
                 </Link>
             </div>

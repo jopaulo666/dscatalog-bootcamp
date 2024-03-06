@@ -3,25 +3,54 @@ import './styles.css'
 import { Product } from 'types/product';
 import { requestBackend } from 'util/requests';
 import { AxiosRequestConfig } from 'axios';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
+import { useEffect } from 'react';
+
+type UrlParams = {
+    productId: string;
+};
 
 const Form = () => {
 
+    const { productId } = useParams<UrlParams>();
+
+    const isEditing = productId !== 'create';
+
     const history = useHistory();
 
-    const { register, handleSubmit, formState: { errors } } = useForm<Product>();
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+        setValue
+    } = useForm<Product>();
+
+    useEffect(() => {
+        if (isEditing) {
+            requestBackend({ url: `/products/${productId}` })
+                .then((response) => {
+                    const product = response.data as Product;
+
+                    setValue('name', product.name);
+                    setValue('price', product.price);
+                    setValue('description', product.description);
+                    setValue('imgUrl', product.imgUrl);
+                    setValue('categories', product.categories);
+                });
+        }
+    }, [isEditing, productId, setValue]);
 
     const onSubmit = (formData: Product) => {
-
         const data = {
             ...formData,
-            imgUrl: "https://www.thewall360.com/uploadImages/ExtImages/images1/def-638240706028967470.jpg",
-            categories: [{ id: 1, name: "Eletrônicos" }]
+            imgUrl: isEditing ? formData.imgUrl :
+                "https://www.thewall360.com/uploadImages/ExtImages/images1/def-638240706028967470.jpg",
+            categories: isEditing ? formData.categories : [{ id: 1, name: "Eletrônicos" }]
         }
 
         const config: AxiosRequestConfig = {
-            method: 'POST',
-            url: "/products",
+            method: isEditing ? 'PUT' : 'POST',
+            url: isEditing ? `/products/${productId}` : '/products',
             data,
             withCredentials: true
         };
